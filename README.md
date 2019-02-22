@@ -2,7 +2,7 @@
 
 This is an implementation of the conditionally independent multiresolution Gaussian process (ciMRGP) model based on Taghia and Schön (2019). Unlike the common assumption of the full independence, ciMRGP assumes conditional independence among Gaussian processes (GPs) across all resolutions. 
 
-References:
+References:\n
 Jalil Taghia and Thomas B. Schön. Conditionally Independent Multiresolution Gaussian Processes. AISTATS, 2019.
 
 Note:
