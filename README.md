@@ -12,6 +12,7 @@ The source files are in <./src/> folder. The main file is MRGP.py. Two test exam
 
 Hope you find the implemtation helpful, and if you did, please cite our paper. Finally, if you have questions, please let me know. 
 
-Jalil Taghia
+Jalil Taghia,
 Feb. 22, 2019
+Uppsala, Sweden
 
