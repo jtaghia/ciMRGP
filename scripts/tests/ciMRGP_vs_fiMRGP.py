@@ -20,7 +20,7 @@ def generate_data():
     X = np.atleast_2d(np.linspace(1, 3, 1*32)).T
     y = f(x=X)
     y = y[:, :, 0].T
-    dy = 1 + 2 * np.random.random(y.shape)
+    dy = 1 + 1 * np.random.random(y.shape)
     noise = .1*np.random.normal(0, dy)
     y += noise
     train = [X, y]
@@ -37,7 +37,7 @@ class MRGP():
             model_name = 'ciMRGP'
 
         basis_function = LaplacianEigenpairs()
-        spectral_density = MaternKernel(nu=.1, l=1, sf=1)
+        spectral_density = MaternKernel(nu=1, l=1, sf=1)
         index_set = IndexSetUniform(sample_length=train[0].shape[0], resolution=n_res, divider=divider)
         basis_interval = BasisInterval(opt_interval_factor=(1, 1.2))
         mrgp = MultiResolutionGaussianProcess(train_xy=train,
@@ -72,7 +72,7 @@ class MRGP():
         #  ----------------------------
         colors = sns.color_palette("Set2", 10)
 
-        plt.figure("1dx_2dy")
+        plt.figure()
         dy = train[1].shape[1]
         for d in range(dy):
             plt.plot(test[0], test[1][:, d],
@@ -89,6 +89,7 @@ class MRGP():
             plt.legend(loc='upper left')
             plt.xticks([])
             plt.yticks([])
+        plt.title(model_name + str(n_res))
 
         plt.savefig('./figs/ciMRGP_vs_fiMRGP/' + model_name + str(n_res))
         plt.close()
@@ -106,7 +107,7 @@ train, test = generate_data()
 # model specifications
 n_res = 5
 divider = 2
-n_basis = 20
+n_basis = 30
 n_iter = 15
 
 #  conditionally independent MRGP (ciMRGP)
