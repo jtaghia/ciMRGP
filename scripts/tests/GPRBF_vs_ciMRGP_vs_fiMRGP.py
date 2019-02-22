@@ -78,7 +78,7 @@ class MRGP():
         #  ----------------------------
         colors = sns.color_palette("Set2", 10)
 
-        plt.figure("1dx_2dy")
+        plt.figure()
         dy = train[1].shape[1]
         for d in range(dy):
             plt.plot(test[0], test[1][:, d],
@@ -95,7 +95,7 @@ class MRGP():
             plt.legend(loc='upper left')
             plt.xticks([])
             plt.yticks([])
-
+        plt.title(model_name + str(n_res))
         plt.savefig('./figs/GPRBF_vs_ciMRGP_vs_fiMRGP/' + model_name + str(n_res))
         plt.close()
 
@@ -151,9 +151,9 @@ class GP_RBF():
 train, test = generate_1dx_2dy_data()
 
 # model specifications
-n_res = 5
+n_res = 7
 divider = 2
-n_basis = 30
+n_basis = 40
 n_iter = 20
 
 #  conditionally independent MRGP (ciMRGP)
